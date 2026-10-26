@@ -1,0 +1,48 @@
+/* Shared public type, spacing and colour roles. */
+:root {
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Cormorant Garamond', Georgia, serif;
+}
+
+.cinematic-site {
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Cormorant Garamond', Georgia, serif;
+    --serif: var(--font-heading);
+    --sans: var(--font-body);
+    --type-hero: clamp(2.125rem, 4vw, 3.75rem);
+    --type-page: clamp(1.875rem, 3.3vw, 3rem);
+    --type-section: clamp(1.625rem, 2.7vw, 2.375rem);
+    --type-card: clamp(1.25rem, 1.8vw, 1.625rem);
+    --type-body: clamp(1.125rem, 1.3vw, 1.25rem);
+    --type-label: .8125rem;
+    --type-control: .875rem;
+    --type-footer: .875rem;
+    --section-space: clamp(2.5rem, 5vw, 5.5rem);
+    --section-space-compact: clamp(1.75rem, 3vw, 3.75rem);
+    --content-gap: clamp(1.5rem, 3vw, 3rem);
+    --page-gutter: clamp(2.5rem, 3vw, 3.5rem);
+    --ink: #202020;
+    --body-text: #454545;
+    --muted: #68625b;
+    --accent: #ad8965;
+    --ivory: #faf8f4;
+    --dark: #202020;
+    --olive: #3d473c;
+    --on-dark: #f5f2ec;
+    --beige: #e8ded0;
+    --line: #d8cfc2;
+}
+
+@media (max-width: 1199px) {
+    .cinematic-site {
+        --page-gutter: clamp(1.5rem, 3vw, 2rem);
+        --section-space: clamp(3rem, 5vw, 4rem);
+    }
+}
+
+@media (max-width: 767px) {
+    .cinematic-site {
+        --page-gutter: clamp(1rem, 4vw, 1.25rem);
+        --section-space: clamp(2.5rem, 5vw, 3.25rem);
+    }
+}

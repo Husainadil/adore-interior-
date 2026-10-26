@@ -1,0 +1,36 @@
+﻿.indian-consultation { position:relative; isolation:isolate; overflow:hidden; background:#263528; color:#fff8ed; padding:64px 0 28px; }
+.indian-consultation-image { position:absolute; inset:-6% 0; z-index:-3; }
+.indian-consultation-image>img { width:100%; height:100%; object-fit:cover; object-position:65% center; }
+.indian-consultation::after { content:''; position:absolute; inset:0; z-index:-2; pointer-events:none; background:linear-gradient(90deg,#16281bf2,#1c2c20d9 36%,#1e2b2070 70%,#1c2a1e40),linear-gradient(0deg,#15281bd9,transparent 50%); }
+.indian-consultation-frame { position:absolute; inset:20px; border:1px solid #e0c39440; z-index:-1; pointer-events:none; }
+.indian-consultation-frame::before,.indian-consultation-frame::after { content:''; position:absolute; width:50px; height:50px; border-style:solid; border-color:#cfaf7d; }
+.indian-consultation-frame::before { left:-1px; top:-1px; border-width:1px 0 0 1px; }
+.indian-consultation-frame::after { right:-1px; bottom:-1px; border-width:0 1px 1px 0; }
+.indian-consultation-layout { display:grid; grid-template-columns:minmax(0,1.75fr) minmax(0,.65fr); gap:70px; align-items:center; }
+.indian-consultation-kicker { display:flex; align-items:center; gap:14px; }
+.indian-consultation-kicker>span:first-child { width:36px; height:1px; background:#d6b988; }
+.indian-consultation .eyebrow { color:#e0c79f; font-size:11px; letter-spacing:.16em; }
+.indian-consultation h2 { font-size:clamp(32px,3.3vw,47px); font-weight:500; line-height:1.19; letter-spacing:-.035em; color:#fff9ed; margin:23px 0; }
+.indian-consultation h2>span { color:#dcc39c; }
+.indian-consultation-copy>p { font-size:16px; line-height:1.85; color:#e1e5d7; max-width:530px; margin:0; }
+.indian-consultation-actions { display:flex; flex-wrap:wrap; gap:16px; margin-top:29px; }
+.indian-consultation-actions>a { display:flex; justify-content:space-between; align-items:center; gap:28px; min-height:52px; padding:16px 22px; font:500 14px/1.5 var(--font-heading); transition:background .25s,color .25s; }
+.indian-consultation-actions>a>span { font-size:21px; }
+.indian-consultation-primary { background:#ddc49c; border:1px solid #ddc49c; color:#253829; }
+.indian-consultation-primary:hover { background:#f2e3cb; }
+.indian-consultation-secondary { background:#23322644; border:1px solid #d8c29c88; color:#f2e9d9; backdrop-filter:blur(5px); }
+.indian-consultation-secondary:hover { background:#e7d3b3; color:#253829; }
+.indian-consultation-detail { max-width:230px; width:100%; justify-self:end; text-align:center; }
+.indian-consultation-jaali { height:290px; border:1px solid #dec59e80; border-radius:130px 130px 0 0; position:relative; background:linear-gradient(0deg,#20332433,#dec59e0a); }
+.indian-consultation-jaali::before { content:''; position:absolute; inset:12px; border:1px solid #dec59e66; border-radius:120px 120px 0 0; background:repeating-linear-gradient(45deg,transparent 0 20px,#dfc59c38 21px 22px,transparent 23px 42px),repeating-linear-gradient(-45deg,transparent 0 20px,#dfc59c38 21px 22px,transparent 23px 42px); }
+.indian-consultation-detail>span { display:block; font-size:9px; line-height:1.9; letter-spacing:.14em; color:#e8d9c0; margin-top:16px; }
+.indian-consultation-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px 28px; border-top:1px solid #d5bd9755; margin-top:42px; padding-top:22px; padding-bottom:12px; }
+.indian-consultation-footer>span { font-size:clamp(16px,1.2vw,18px); font-weight:600; line-height:1.6; letter-spacing:.04em; color:#fff4df; }
+.indian-consultation-footer>a { font:600 clamp(18px,1.4vw,20px)/1.6 var(--font-body); color:#fff8ed; }
+.indian-consultation-footer>a>span { margin-left:16px; color:#fff4df; }
+.indian-consultation-footer>small { font-size:9px; color:#c3cdbb; }
+.indian-consultation a:focus-visible { outline:2px solid #ead6b3; outline-offset:5px; }
+@media(max-width:1023px) { .indian-consultation-layout { gap:35px; grid-template-columns:minmax(0,1.8fr) minmax(0,.6fr); } .indian-consultation-jaali { height:240px; } }
+@media(max-width:767px) { .indian-consultation { padding-top:45px; } .indian-consultation-frame { inset:12px; } .indian-consultation-layout { grid-template-columns:1fr; gap:0; } .indian-consultation-detail { display:none; } .indian-consultation h2 { font-size:clamp(30px,6.5vw,42px); } .indian-consultation .eyebrow { font-size:10px; letter-spacing:.1em; } .indian-consultation-footer { margin-top:30px; gap:14px; } .indian-consultation-footer>a>span { display:block; margin-left:0; } .indian-consultation-footer>small { flex-basis:100%; } }
+@media(max-width:479px) { .indian-consultation-actions { flex-direction:column; } .indian-consultation-actions>a { width:100%; } .indian-consultation-copy>p { font-size:15px; } }
+@media(prefers-reduced-motion:reduce) { .indian-consultation-actions>a { transition:none; } }

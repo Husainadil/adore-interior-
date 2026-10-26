@@ -1,0 +1,15 @@
+@extends('layouts.admin')
+@section('content')
+<a class="text-link" href="/admin/{{ $module }}">← Back to {{ str_replace('_',' ',$module) }}</a><div class="admin-heading"><h1>{{ $record?'Edit':'New' }} {{ str_replace('_',' ',$module) }}</h1></div><form method="post" action="/admin/{{ $module }}{{ $record?'/'.$record->id:'' }}" enctype="multipart/form-data" class="admin-form" x-data="{preview: @js(old('image',$record->image??''))}">@csrf
+@php
+ $isContent=in_array($module,\App\Http\Controllers\AdminController::CONTENT,true);
+ $fields=$isContent?['title','slug','description','content','image','secondary_image','location','sort_order']:match($module){'website_settings'=>['key','value'],'seo_metadata'=>['path','title','description'],'project_categories'=>['title','slug'],'project_images'=>['path','alt','sort_order'],'media_assets'=>['alt'],default=>[]};
+@endphp
+@if($module==='website_settings')<p class="notice">Supported keys: logo, address. Logo must be an original brand asset path, e.g. /storage/media/logo.png.</p>@endif
+@foreach($fields as $field)<label>{{ ucwords(str_replace('_',' ',$field)) }}@if(in_array($field,['description','content','value']))<textarea name="{{ $field }}" rows="{{ $field==='content'?10:4 }}">{{ old($field,$record->$field??'') }}</textarea>@else<input name="{{ $field }}" type="{{ $field==='sort_order'?'number':'text' }}" value="{{ old($field,$record->$field??($field==='sort_order'?0:'')) }}" @if($field==='sort_order') min="0" @endif @if(in_array($field,['title','slug','key','path','alt'])) required @endif @if($field==='image') x-model="preview" @endif>@endif</label>@endforeach
+@if($isContent)<p class="form-note">Image fields accept /storage/media/… paths from the media library or /images/… assets. Content is displayed as plain text for security.</p><img class="admin-preview" x-show="preview" :src="preview" alt="Selected image preview"><div class="checkbox-row"><label><input type="checkbox" name="published" value="1" @checked(old('published',$record->published??false))> Published</label><label><input type="checkbox" name="is_sample" value="1" @checked(old('is_sample',$record->is_sample??false))> Clearly label as sample content</label></div>@endif
+@if($module==='projects')<label>Project category<select name="project_category_id"><option value="">Uncategorized</option>@foreach($categories as $category)<option value="{{ $category->id }}" @selected(old('project_category_id',$record->project_category_id??'')==$category->id)>{{ $category->title }}</option>@endforeach</select></label>@endif
+@if($module==='project_images')<label>Project<select name="project_id" required>@foreach($projects as $project)<option value="{{ $project->id }}" @selected(old('project_id',$record->project_id??'')==$project->id)>{{ $project->title }}</option>@endforeach</select></label>@endif
+@if($module==='media_assets')<label>Image upload (JPEG, PNG or WebP, max 5 MB)<input type="file" name="upload" accept="image/jpeg,image/png,image/webp" required></label>@endif
+<button class="button dark">Save changes ↗</button></form>
+@endsection

@@ -1,0 +1,68 @@
+.page-contact .breadcrumb { display:none; }
+.indian-contact { background:#faf7f0; }
+.contact-indian-hero { background:#eee5d5; padding-block:40px; }
+.contact-indian-hero-layout { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr); gap:80px; align-items:center; }
+.indian-contact .eyebrow { font-size:10px; letter-spacing:.12em; color:#8e724a; }
+.contact-indian-hero h1 { font-size:clamp(38px,4vw,58px); line-height:1.14; font-weight:500; letter-spacing:-.04em; margin:26px 0; color:#303c2b; }
+.contact-indian-hero h1>span { color:#7a7e5d; }
+.contact-indian-hero-layout>div>p { max-width:500px; font-size:16px; line-height:1.9; color:#6f6553; }
+.contact-hero-button { display:inline-flex; align-items:center; gap:40px; padding:17px 23px; background:#364a30; border:1px solid #364a30; color:#fff4df; font:500 14px/1.5 var(--font-heading); margin-top:14px; transition:background .3s; }
+.contact-hero-button:hover { background:#506443; }
+.contact-hero-location { display:block; margin-top:30px; font-size:9px; letter-spacing:.12em; color:#8c7858; }
+.contact-hero-photo { height:420px; position:relative; margin:0; padding:8px; border:1px solid #bea47b; border-radius:190px 190px 0 0; overflow:hidden; }
+.contact-hero-photo img { width:100%; height:100%; object-fit:cover; object-position:65% center; border-radius:180px 180px 0 0; }
+.contact-hero-photo::after { content:''; position:absolute; inset:8px; border-radius:180px 180px 0 0; pointer-events:none; background:linear-gradient(0deg,#1f3025d9,transparent 60%); }
+.contact-hero-photo figcaption { position:absolute; left:32px; bottom:28px; right:25px; z-index:1; }
+.contact-hero-photo strong { font:500 27px/1.3 var(--font-heading); color:#fff5e1; letter-spacing:-.03em; }
+.contact-hero-photo small { display:block; margin-top:15px; color:#dfd4bd; font-size:9px; line-height:1.8; }
+.contact-conversation-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); padding-block:29px; gap:28px; border-bottom:1px solid #cfbfa4; }
+.contact-conversation-links>a { display:flex; align-items:center; gap:14px; min-width:0; }
+.contact-conversation-links>a>span:nth-child(2) { min-width:0; }
+.contact-conversation-links>a>span:last-child { margin-left:auto; color:#9c7e50; }
+.contact-link-icon { width:43px; height:48px; border:1px solid #c6b28e; border-radius:23px 23px 0 0; display:grid; place-items:center; color:#8c7149; flex-shrink:0; font-size:23px; }
+.contact-link-icon svg { width:20px; height:20px; stroke-width:1.3; }
+.contact-conversation-links small { display:block; font-size:8px; letter-spacing:.12em; color:#9a7c50; }
+.contact-conversation-links strong { display:block; font:500 14px/1.6 var(--font-heading); color:#46543b; margin-top:7px; overflow-wrap:anywhere; }
+.contact-consultation-layout { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:40px; padding-block:55px; align-items:start; scroll-margin-top:110px; }
+.contact-studio-note { background:#2d402f; padding:34px; color:#fff6e3; border:1px solid #a98d6044; }
+.contact-studio-note .eyebrow { color:#d4ba92; }
+.contact-studio-note h2 { font-size:clamp(29px,2.6vw,36px); font-weight:500; line-height:1.22; margin:21px 0; color:#fff7e7; }
+.contact-studio-note h2>span { color:#d9c39e; }
+.contact-studio-note>p { color:#d4ddcb; font-size:15px; line-height:1.85; }
+.contact-studio-note address { font-style:normal; margin-top:30px; border-top:1px solid #cfb38a55; padding-top:24px; }
+.contact-studio-note address strong { display:block; margin-top:14px; font:500 18px var(--font-heading); }
+.contact-studio-note address p { font-size:15px; color:#d4ddcb; line-height:1.85; margin-top:12px; }
+.contact-studio-note address a { display:flex; justify-content:space-between; gap:20px; color:#e2c8a0; font:500 13px/1.6 var(--font-heading); border-bottom:1px solid #d4ba9255; padding-block:12px; }
+.contact-studio-note figure { margin:28px 0 0; overflow:hidden; }
+.contact-studio-note figure img { width:100%; height:185px; object-fit:cover; }
+.contact-studio-note figcaption { font-size:10px; color:#bfcab4; padding-top:12px; line-height:1.8; }
+.contact-inquiry-panel { background:#fffaf2; padding:34px; border:1px solid #d5c3a5; box-shadow:0 8px 25px #624a2708; }
+.contact-inquiry-heading { padding-bottom:24px; border-bottom:1px solid #d9cbb3; margin-bottom:25px; }
+.contact-inquiry-heading h2 { color:#34432d; font-size:clamp(29px,2.6vw,36px); font-weight:500; line-height:1.2; margin:16px 0; }
+.contact-inquiry-heading h2>span { color:#7c805f; }
+.contact-inquiry-heading p { color:#736854; font-size:15px; line-height:1.8; margin:0; }
+.page-contact .inquiry-form .form-grid { gap:22px; }
+.page-contact .inquiry-form label { font:500 12px/1.7 var(--font-heading); color:#665b46; }
+.page-contact .inquiry-form input,.page-contact .inquiry-form select,.page-contact .inquiry-form textarea { background:#fffdf8; border:1px solid #cdbc9f; border-radius:0; color:#3b4433; padding:13px 14px; font:400 15px/1.6 var(--font-body); min-height:48px; }
+.page-contact .inquiry-form textarea { min-height:135px; }
+.page-contact .inquiry-form input:focus-visible,.page-contact .inquiry-form select:focus-visible,.page-contact .inquiry-form textarea:focus-visible { outline:2px solid #a38960; outline-offset:2px; }
+.page-contact .consultation-summary { border-radius:0; background:#eee8d9; border-color:#d5c2a3; padding:20px; }
+.page-contact .consultation-summary output { font-size:18px; color:#5d6b4d; }
+.page-contact .inquiry-form .form-note { font-size:11px; line-height:1.9; color:#83765e; }
+.page-contact .consultation-submit { gap:12px; }
+.page-contact .consultation-submit .button { border-radius:0; min-height:50px; font-size:13px; }
+.page-contact .consultation-submit .button.dark { background:#3b5032; border-color:#3b5032; color:#fff2da; }
+.page-contact .consultation-submit .whatsapp-submit { color:#506342; border-color:#ac9976; background:transparent; }
+.contact-studio-map { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:40px; align-items:center; padding-bottom:55px; }
+.contact-studio-map h2 { color:#38482f; font-size:clamp(28px,2.5vw,35px); line-height:1.22; font-weight:500; margin:18px 0; }
+.contact-studio-map h2>span { color:#7c7f60; }
+.contact-studio-map>div>p { font-size:15px; line-height:1.85; color:#7a6b52; }
+.contact-studio-map .text-link { color:#546647; font-size:13px; }
+.contact-map-frame { border:1px solid #c8b18c; padding:9px; background:#eee5d5; }
+.contact-map-frame iframe { display:block; width:100%; height:330px; border:0; }
+.contact-map-frame>p { font-size:10px!important; margin:11px 5px 3px; }
+.indian-contact a:focus-visible { outline:2px solid #b49a70; outline-offset:5px; }
+@media(max-width:1023px) { .contact-indian-hero-layout { gap:35px; } .contact-conversation-links { gap:20px; } .contact-conversation-links>a { gap:10px; } .contact-conversation-links strong { font-size:12px; } .contact-consultation-layout,.contact-studio-map { gap:24px; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); } .contact-inquiry-panel,.contact-studio-note { padding:25px; } }
+@media(max-width:767px) { .contact-indian-hero-layout { grid-template-columns:1fr; gap:28px; } .contact-indian-hero h1 { font-size:clamp(36px,7vw,48px); } .contact-hero-photo { height:340px; max-width:500px; width:100%; margin-inline:auto; } .contact-conversation-links { grid-template-columns:1fr; gap:0; padding-block:12px; } .contact-conversation-links>a { padding-block:17px; border-bottom:1px solid #d7c8ac; } .contact-conversation-links>a:last-child { border:0; } .contact-conversation-links strong { font-size:15px; } .contact-consultation-layout,.contact-studio-map { grid-template-columns:1fr; padding-block:40px; gap:28px; } .contact-inquiry-panel { grid-row:1; } .contact-studio-note figure img { height:230px; } .contact-studio-map { padding-top:0; } .contact-inquiry-panel,.contact-studio-note { padding:25px; } .page-contact .inquiry-form .form-grid { grid-template-columns:1fr; gap:20px; } .contact-map-frame iframe { height:280px; } }
+@media(max-width:379px) { .contact-inquiry-panel,.contact-studio-note { padding:20px; } .contact-indian-hero .eyebrow { font-size:9px; } .contact-hero-photo strong { font-size:24px; } }
+@media(prefers-reduced-motion:reduce) { .contact-hero-button { transition:none; } }

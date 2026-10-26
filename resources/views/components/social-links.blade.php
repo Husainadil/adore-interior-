@@ -1,0 +1,1 @@
+<nav class="social-links" aria-label="Follow Adore Interior">@foreach($socialLinks as $network=>$socialUrl)<a href="{{ $socialUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Adore Interior on {{ $network }} (opens in a new tab)">{{ $network }} <span aria-hidden="true">↗</span></a>@endforeach</nav>

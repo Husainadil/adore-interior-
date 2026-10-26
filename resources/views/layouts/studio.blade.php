@@ -1,0 +1,41 @@
+@php
+ $titles=['home'=>'Beautiful Homes. Thoughtful Interiors.','about'=>'A considered approach to living.','services'=>'Every Detail. Beautifully Considered.','projects'=>'Spaces That Speak for Themselves.','design-process'=>'From Vision to Reality.','contact'=>'Let’s create something personal.','privacy'=>'Privacy Policy','terms'=>'Terms & Conditions','calculator'=>'Interior Cost Calculator - Beautiful Spaces. Thoughtfully Budgeted.'];
+ $title=$seo->title ?? ($record?->title ?? $titles[$page]).' — Adore Interior';
+ $description=$seo->description ?? $record?->description ?? 'Thoughtfully designed residential and commercial interiors in Ahmedabad. Discover Adore Interior and start your design journey.';
+ $hero=$banners->first();
+ $defaultHero = !$hero || ($hero->slug==='home-hero' && $hero->title==='Where spaces' && $hero->content==='become stories.');
+ $heroImage=($defaultHero && (!$hero || $hero->image==='/images/living.jpg')) ? '/images/indian-living.jpg' : ($hero?->image ?? '/images/indian-living.jpg');
+ $logo=$settings['logo'] ?? '/images/logo.jpeg';
+ $socialLinks=['Instagram'=>'https://www.instagram.com/adoreinterior_/','Facebook'=>'https://www.facebook.com/people/Adore-interior/61588312870690/'];
+@endphp
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="csrf-token" content="{{ csrf_token() }}">@isset($estimate)<meta name="robots" content="noindex,nofollow">@endisset<title>{{ $title }}</title><meta name="description" content="{{ $description }}"><link rel="canonical" href="{{ url()->current() }}"><meta property="og:title" content="{{ $title }}"><meta property="og:description" content="{{ $description }}"><meta property="og:type" content="{{ $record ? 'article':'website' }}"><meta property="og:url" content="{{ url()->current() }}"><meta property="og:image" content="{{ url($record?->image ?? $heroImage) }}"><meta name="theme-color" content="#171717"><link rel="icon" type="image/jpeg" href="/images/logo.jpeg">
+@if($page==='home')<link rel="preload" as="image" href="{{ $heroImage }}" imagesrcset="{{ \App\Support\StudioImage::srcset($heroImage) }}" imagesizes="100vw">@endif
+
+@vite(['resources/css/app.css','resources/js/app.js'])
+<script type="application/ld+json">{!! json_encode(['@'.'context'=>'https://schema.org','@type'=>'LocalBusiness','name'=>'Adore Interior','logo'=>url($logo),'sameAs'=>array_values($socialLinks),'url'=>url('/'),'telephone'=>'+919173774898','email'=>'Adoreinterior4@gmail.com','address'=>['@type'=>'PostalAddress','streetAddress'=>'413/414, City Center 2, Science City','addressLocality'=>'Ahmedabad','addressRegion'=>'Gujarat','addressCountry'=>'IN']],JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP) !!}</script>
+</head>
+<body class="cinematic-site page-{{ $page }} {{ $record?'has-case-study':'' }}" x-data="{menu:false}" :class="{'menu-open':menu}" id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header {{ $page==='home'?'overlay':'' }}" :class="{'menu-visible':menu}">
+    <a class="brand" href="/" aria-label="Adore Interior home">@if($logo)<img class="brand-logo {{ $logo==='/images/logo.jpeg'?'brand-logo-original':null }}" src="{{ $logo }}" alt="Adore Interior" width="640" height="640">@else<span class="brand-placeholder">ADORE INTERIOR<small>INTERIORS / AHMEDABAD</small></span>@endif</a>
+    <nav class="desktop-nav" aria-label="Main navigation">@foreach([''=>'Home','about'=>'Our Studio','services'=>'Services','projects'=>'Projects','design-process'=>'The Process','interior-cost-calculator'=>'Cost Calculator','contact'=>'Contact'] as $url=>$label)@php($active=$url===''?$page==='home':request()->is($url,$url.'/*'))<a class="{{ $active?'active':'' }}" @if($active) aria-current="page" @endif href="/{{ $url }}">{{ $label }}</a>@endforeach</nav>
+    <a href="/contact" class="header-cta">Book Consultation <span>↗</span></a>
+    <button class="menu-toggle" @click="menu=!menu" :aria-expanded="menu" aria-controls="mobile-menu" aria-label="Toggle navigation"><span x-text="menu?'Close':'Menu'">Menu</span><span class="menu-lines" :class="{'is-open':menu}" aria-hidden="true"><i></i><i></i></span></button>
+</header>
+<div id="mobile-menu" class="mobile-nav" x-show="menu" x-cloak x-transition.opacity.duration.300ms @keydown.escape.window="menu=false" x-trap.inert.noscroll="menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu-head"><a href="/" aria-label="Adore Interior home"><img class="mobile-brand-logo {{ $logo==='/images/logo.jpeg'?'brand-logo-original':null }}" src="{{ $logo }}" width="640" height="640" alt="Adore Interior"></a><button @click="menu=false" class="close-menu" aria-label="Close navigation">Close ×</button></div>
+    <nav aria-label="Mobile navigation">@foreach([''=>'Home','about'=>'Our Studio','services'=>'Our Expertise','projects'=>'Projects','design-process'=>'The Process','interior-cost-calculator'=>'Cost Calculator','contact'=>'Let’s Talk'] as $url=>$label)<a href="/{{ $url }}"><span class="menu-number">0{{ $loop->iteration }}</span>{{ $label }}<span class="menu-arrow" aria-hidden="true">↗</span></a>@endforeach</nav>
+    <a class="button bronze mobile-consultation" href="/contact">Book a Consultation <span aria-hidden="true">↗</span></a><div class="mobile-menu-foot"><span>Thoughtfully designed.<br>Beautifully lived.</span><a href="tel:+919173774898">+91 91737 74898 ↗</a>@include('components.social-links')</div>
+</div>
+<main id="main" tabindex="-1">
+    @if($page!=='home')<div class="breadcrumb wrap"><a href="/">Home</a><span>/</span>@if($record)<a href="/{{ $page }}">{{ ucfirst($page) }}</a><span>/</span>@endif<span>{{ $record?->title ?? ucwords(str_replace('-',' ',$page)) }}</span></div>@endif
+    @yield('content')
+</main>
+@include('components.consultation')
+<footer class="footer architectural-footer"><div class="wrap">
+    <div class="footer-opening"><span class="eyebrow">LET’S START SOMETHING BEAUTIFUL.</span><a href="/contact">Your dream space.<br><em>Let’s make it happen.</em><span aria-hidden="true">↗</span></a></div>
+    <div class="footer-top"><div><a class="footer-word" href="/" aria-label="Adore Interior home">@if($logo)<img src="{{ $logo }}" class="footer-brand-logo {{ $logo==='/images/logo.jpeg'?'brand-logo-original':null }}" width="640" height="640" alt="Adore Interior" loading="lazy">@else Adore Interior @endif</a><p>Complete residential and commercial interiors, designed around the way you live and work.</p><span class="eyebrow">AHMEDABAD, INDIA</span>@include('components.social-links')</div><div><h3>Explore the studio</h3><a href="/about">About Adore Interior</a><a href="/projects">Our spaces</a><a href="/design-process">The design journey</a><a href="/interior-cost-calculator">Estimate Your Interior Cost</a><a href="/contact">Start a conversation</a></div><div><h3>Our expertise</h3><a href="/services">Residential interiors</a><a href="/services/modular-kitchen-design">Modular kitchens</a><a href="/services/office-commercial-interiors">Commercial spaces</a><a href="/services/turnkey-interior-solutions">Turnkey solutions</a></div><div><h3>Come say hello</h3><p>{{ $settings['address'] ?? '413/414, City Center 2, Science City, Ahmedabad, Gujarat, India' }}</p><a href="tel:+919173774898">+91 91737 74898 ↗</a><a href="mailto:Adoreinterior4@gmail.com">Adoreinterior4@gmail.com ↗</a></div></div>
+    <div class="footer-bottom"><span>© {{ date('Y') }} Adore Interior.</span><span>THOUGHTFULLY DESIGNED. BEAUTIFULLY LIVED.</span><div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="#top" data-back-to-top>Back to top ↑</a></div></div>
+</div></footer>
+<div class="contact-dock"><a class="whatsapp" href="https://wa.me/919173774898?text=Hello%20Adore%20Interior%2C%20I%20would%20like%20to%20discuss%20an%20interior%20design%20consultation." target="_blank" rel="noopener" aria-label="Chat with Adore Interior on WhatsApp"><i data-lucide="message-circle" aria-hidden="true"></i><span>WhatsApp us</span></a></div><a class="mobile-call" href="tel:+919173774898" aria-label="Call Adore Interior"><i data-lucide="phone" aria-hidden="true"></i></a>
+</body></html>

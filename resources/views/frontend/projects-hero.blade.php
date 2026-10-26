@@ -1,0 +1,7 @@
+<section class="projects-hero" aria-labelledby="projects-heading">
+    <x-editorial-image src="/images/indian-living.jpg" alt="AI-generated Indian living room concept with walnut joinery, marble and warm neutral furnishings" :eager="true" sizes="100vw" class="projects-hero-image" />
+    <div class="projects-hero-shade"></div><div class="projects-hero-frame" aria-hidden="true"></div>
+    <div class="wrap projects-hero-layout"><div class="projects-hero-copy"><span class="eyebrow">THE ADORE COLLECTION / SPACES & STORIES</span><h1 id="projects-heading" data-word-reveal>Spaces to admire.<br><span>Ideas to make your own.</span></h1><p>A thoughtful exploration of modern interiors. Discover the materials, moods and details that turn a space into somewhere you belong.</p><a class="projects-hero-button" href="#selected-work">Explore the Collection <span aria-hidden="true">↓</span></a><div class="projects-hero-location">MODERN LUXURY. INDIAN WARMTH. YOUR PERSPECTIVE.</div></div>
+    <figure class="projects-hero-study"><div data-mask><x-editorial-image src="/images/indian-kitchen.jpg" alt="AI-generated Indian kitchen concept with walnut cabinetry and warm stone" sizes="(max-width: 767px) 40vw, 22vw" /></div><figcaption><span>DETAILS THAT MAKE<br>EVERYDAY LIFE BEAUTIFUL.</span><span aria-hidden="true">↗</span></figcaption></figure></div>
+    <div class="wrap projects-hero-foot"><a href="#selected-work">Discover your next chapter <span aria-hidden="true">↓</span></a></div>
+</section>

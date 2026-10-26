@@ -1,0 +1,4 @@
+@extends('layouts.admin')
+@section('content')
+<a class="text-link" href="{{ route('calculator.admin.module',['module'=>'estimates']) }}">← Generated estimates</a><div class="admin-heading"><div><span class="eyebrow">{{ $estimate->is_demo?'DEMO / ':'' }}{{ $result['type'] }}</span><h1>{{ $estimate->reference }}</h1></div><a class="button dark" href="{{ route('calculator.admin.pdf',$estimate) }}">Download stored PDF ↓</a></div><p>Created {{ $estimate->created_at->format('d M Y H:i') }} · {{ $result['property']??'Measured scope' }} · {{ $result['package']??'Item pricing' }}</p><details class="calc-admin-inputs"><summary>Complete selected calculator inputs</summary><pre>{{ json_encode($estimate->inputs,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE) }}</pre></details><p class="form-note">Historical pricing version: {{ $result['version_hash'] }}</p>@include('calculator.breakdown')
+@endsection
